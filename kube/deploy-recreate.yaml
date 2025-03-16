@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test
+  name: tt
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: tt
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: tt
+    spec:
+      containers:
+        - image: nginx
+          name: httpd
+
+status: {}
